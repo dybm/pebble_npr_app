@@ -46,6 +46,10 @@
         return options;
       }
       
+      //preset select to passed field
+      var topic_obj = decodeURIComponent(document.location);
+      console.log(topic_obj);
+      
       document.getElementById('b-cancel').onclick = function() {
         console.log("Cancel");
         document.location = "pebblejs://close";
