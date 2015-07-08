@@ -48,6 +48,19 @@
         return options;
       }
       
+      document.getElementById('b-cancel').onclick = function() {
+        console.log("Cancel");
+        document.location = "pebblejs://close";
+      }
+      
+      document.getElementById('b-submit').onclick = function() {
+        console.log("Submit");
+        var location = "pebblejs://close#" + encodeURIComponent(JSON.stringify(saveOptions()));
+        console.log("Warping to: " + location);
+        console.log(location);
+        document.location = location;
+      }
+      
     </script>
   </body>
 </html>
