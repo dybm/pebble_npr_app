@@ -26,6 +26,85 @@
       	    <option value="1142">Architecture</option>
       	    <option value="1091">Around the Nation</option>
       	    <option value="1047">Art &amp; Design</option>
+			<option value="1008">Arts &amp; Life</option>
+			<option value="1125">Asia</option>
+			<option value="1033">Author Interviews</option>
+			
+			<option value="1161">Book News &amp; Features</option>
+			<option value="1034">Book Reviews</option>
+			<option value="1032">Books</option>
+			<option value="1130">Brain Candy</option>
+			<option value="1006">Business</option>
+			<option value="1095">Business Story of the Day</option>
+			<option value="1030">Children's Health</option>
+			<option value="1058">Columns</option>
+			<option value="1060">Commentary</option>
+			<option value="1145">Dance</option>
+			
+			<option value="1049">Digital Life</option>
+			<option value="1017">Economy</option>
+			<option value="1013">Education</option>
+			<option value="1131">Energy</option>
+			<option value="1025">Environment</option>
+			<option value="1124">Europe</option>
+			<option value="1141">Fine Art</option>
+			<option value="1134">Fitness &amp; Nutrition</option>
+			<option value="1053">Food</option>
+			<option value="1052">Games &amp; Humor</option>
+			
+			<option value="1031">Global Health</option>
+			<option value="1123">Governing</option>
+			<option value="1128">Health</option>
+			<option value="1027">Health Care</option>
+			<option value="1136">History</option>
+			<option value="1002">Home Page Top Stories</option>
+			<option value="1129">Humans</option>
+			<option value="1022">Interviews</option>
+			<option value="1010">Iraq</option>
+			<option value="1127">Latin America</option>
+			
+			<option value="1070">Law</option>
+			<option value="1020">Media</option>
+			<option value="1135">Medical Treatments</option>
+			<option value="1029">Mental Health</option>
+			<option value="1009">Middle East</option>
+			<option value="1137">Movie Interviews</option>
+			<option value="4467349">Movie Reviews</option>
+			<option value="1045">Movies</option>
+			<option value="1147">Multimedia</option>
+			<option value="1122">National Security</option>
+			
+			<option value="1001">News</option>
+			<option value="1150">NPR News Investigations</option>
+			<option value="1028">On Aging</option>
+			<option value="1133">On Disabilities</option>
+			<option value="1057">Opinion</option>
+			<option value="1046">Performing Arts</option>
+			<option value="1143">Photography</option>
+			<option value="1014">Politics</option>
+			<option value="1048">Pop Culture</option>
+			<option value="139544303">Presidential Race</option>
+			
+			<option value="1015">Race</option>
+			<option value="1139">Recipes</option>
+			<option value="1016">Religion</option>
+			<option value="1062">Remembrances</option>
+			<option value="1024">Research News</option>
+			<option value="1007">Science</option>
+			<option value="1026">Space</option>
+			<option value="1055">Sports</option>
+			<option value="1090">Story of the Day</option>
+			<option value="1146">Strange News</option>
+			
+			<option value="1019">Technology</option>
+			<option value="1138">Television</option>
+			<option value="1078">The Impact of War</option>
+			<option value="1144">Theater</option>
+			<option value="1003">U.S.</option>
+			<option value="1004">World</option>
+			<option value="1056">World Story of the Day</option>
+			<option value="1066">Your Health</option>
+			<option value="1018">Your Money</option>
       	  </select>
       	</div>
 
@@ -46,10 +125,19 @@
         return options;
       }
       
-      //preset select to passed field
-      //var topic_obj = decodeURIComponent(document.location);
-      console.log(decodeURIComponent(window.location.search.replace("?", "")));
-      console.log("78");
+	  //get the topic if passed through URL
+	  var get = decodeURIComponent(window.location.search.replace("?", ""));
+	  if (get.indexOf('{"topic":') == -1) {
+		var topic = "1004";
+	  } else {
+		var topic_obj = JSON.parse(get.substring(0, get.indexOf("}")+1));
+		var topic = topic_obj.topic;
+	  }
+	  
+	  console.log(topic);
+	  
+	  //set the select dropdown to the prescribed topic
+	  document.getElementById("topic").value = topic;
       
       document.getElementById('b-cancel').onclick = function() {
         console.log("Cancel");
