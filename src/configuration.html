@@ -48,7 +48,7 @@
       
       //preset select to passed field
       //var topic_obj = decodeURIComponent(document.location);
-      console.log(window.location.search.replace("?", ""));
+      console.log(decodeURI(window.location.search.replace("?", "")));
       
       document.getElementById('b-cancel').onclick = function() {
         console.log("Cancel");
