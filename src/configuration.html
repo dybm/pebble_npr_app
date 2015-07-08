@@ -120,7 +120,8 @@
     <script>
       function saveOptions() {
         var options = {
-          'topic' : $("#topic").val()
+          'topic' : $("#topic").val(),
+          'name'  : $("#topic").options[$("#topic").selectedIndex].text
         }
         return options;
       }
