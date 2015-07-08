@@ -121,7 +121,7 @@
       function saveOptions() {
         var options = {
           'topic' : $("#topic").val(),
-          'name'  : $("#topic").options[$("#topic").selectedIndex].text
+          'name'  : $("#topic option:selected").text()
         }
         return options;
       }
